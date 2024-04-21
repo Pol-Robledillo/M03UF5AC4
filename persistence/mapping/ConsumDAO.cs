@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using M03UF5AC3.persistence.utils;
 using M03UF5AC3.persistence.DAO;
+using M03UF5AC3.DTOs;
 
 
 namespace M03UF5AC3.persistence.mapping

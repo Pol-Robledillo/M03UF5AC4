@@ -11,6 +11,7 @@ using M03UF5AC3.persistence.mapping;
 using System.Windows.Forms;
 using M03UF5AC3.persistence.utils;
 using M03UF5AC3.business.entities;
+using M03UF5AC3.DTOs;
 namespace M03UF5AC3
 {
     public partial class Form1 : Form
@@ -18,11 +19,22 @@ namespace M03UF5AC3
         public Form1()
         {
             ConsumDAO consumDAO = new ConsumDAO(NpgsqlUtils.OpenConnection());
-            if(consumDAO.GetAll().Count == 0)
+            //Helper.CsvToXml("../../../files/Consum.csv", "../../../files/Consum.xml");
+            if (consumDAO.GetAll().Count == 0)
             {
                 foreach (Consum consum in Helper.GetDataFromCsv("../../../files/Consum.csv"))
                 {
-                    Helper.AddConsumToCsv(consum, "../../../files/Consum.csv");
+                    consumDAO.Insert(new ConsumDTO
+                    {
+                        Any = consum.Any,
+                        CodiComarca = consum.CodiComarca,
+                        Comarca = consum.Comarca,
+                        Poblacio = consum.Poblacio,
+                        DomesticXarxa = consum.DomesticXarxa,
+                        ActivitatsEconomiques = consum.ActivitatsEconomiques,
+                        Total = consum.Total,
+                        ConsumDomesticPerCapita = consum.ConsumDomesticPerCapita
+                    });
                 }
             }
             InitializeComponent();
@@ -59,8 +71,7 @@ namespace M03UF5AC3
         }
         private void FillComboBoxYear()
         {
-            ConsumDAO consumDAO = new ConsumDAO(NpgsqlUtils.OpenConnection());
-            List<ConsumDTO> consums = consumDAO.GetAll();
+            List<Consum> consums = Helper.GetDataFromCsv("../../../files/Consum.csv");
             int minYear = consums.Min(x => x.Any);
             for (int i = minYear; i <= 2050; i++)
             {
@@ -69,14 +80,12 @@ namespace M03UF5AC3
         }
         private void FillComboBoxComarca()
         {
-            ConsumDAO consumDAO = new ConsumDAO(NpgsqlUtils.OpenConnection());
-            List<string> comarques = consumDAO.GetAllComarcas();
+            List<string> comarques = Helper.GetComarquesXML();
             foreach (string comarca in comarques)
             {
                 regionSelector.Items.Add(comarca);
             }
         }
-
         private void cleanSelectionButton_Click(object sender, EventArgs e)
         {
             yearSelector.SelectedIndex = -1;

@@ -1,4 +1,5 @@
-﻿namespace M03UF5AC3.persistence.DAO
+﻿using M03UF5AC3.DTOs;
+namespace M03UF5AC3.persistence.DAO
 {
     public interface IConsumDAO
     {

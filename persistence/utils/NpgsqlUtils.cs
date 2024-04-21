@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Npgsql;
+using M03UF5AC3.DTOs;
 
 namespace M03UF5AC3.persistence.utils
 {
@@ -18,14 +19,15 @@ namespace M03UF5AC3.persistence.utils
         {
             ConsumDTO c = new ConsumDTO
             {
-                Any = reader.GetInt32(0),
-                CodiComarca = reader.GetInt32(1),
-                Comarca = reader.GetString(2),
-                Poblacio = reader.GetInt32(3),
-                DomesticXarxa = reader.GetInt32(4),
-                ActivitatsEconomiques = reader.GetInt32(5),
-                Total = reader.GetInt32(6),
-                ConsumDomesticPerCapita = reader.GetDouble(7)
+                ID = reader.GetInt32(0),
+                Any = reader.GetInt32(1),
+                CodiComarca = reader.GetInt32(2),
+                Comarca = reader.GetString(3),
+                Poblacio = reader.GetInt32(4),
+                DomesticXarxa = reader.GetInt32(5),
+                ActivitatsEconomiques = reader.GetInt32(6),
+                Total = reader.GetInt32(7),
+                ConsumDomesticPerCapita = reader.GetDouble(8)
             };
             return c;
         }

@@ -227,7 +227,7 @@
             lowestDomConsInfo.AutoSize = true;
             lowestDomConsInfo.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lowestDomConsInfo.ForeColor = Color.Blue;
-            lowestDomConsInfo.Location = new Point(235, 133);
+            lowestDomConsInfo.Location = new Point(243, 133);
             lowestDomConsInfo.Name = "lowestDomConsInfo";
             lowestDomConsInfo.Size = new Size(12, 15);
             lowestDomConsInfo.TabIndex = 7;
@@ -276,9 +276,9 @@
             lowestDomConsLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lowestDomConsLabel.Location = new Point(15, 133);
             lowestDomConsLabel.Name = "lowestDomConsLabel";
-            lowestDomConsLabel.Size = new Size(214, 15);
+            lowestDomConsLabel.Size = new Size(222, 15);
             lowestDomConsLabel.TabIndex = 3;
-            lowestDomConsLabel.Text = "Consum Domèstic per Càpita Més Alt:";
+            lowestDomConsLabel.Text = "Consum Domèstic per Càpita Més Baix:";
             // 
             // populationBiggerThanLabel
             // 

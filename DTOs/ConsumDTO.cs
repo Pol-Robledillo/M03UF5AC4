@@ -1,6 +1,6 @@
 ﻿using CsvHelper.Configuration.Attributes;
 
-namespace M03UF5AC3
+namespace M03UF5AC3.DTOs
 {
     public class ConsumDTO
     {
